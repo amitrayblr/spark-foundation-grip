@@ -10,7 +10,7 @@ import numpy as np
 data = pd.read_csv('data/studentscore.csv')
 print(data.head(10))
 
-# Plotting the distribution of scores
+# Plotting the data
 data.plot(x='Hours', y='Scores', style='o')  
 plt.title('Hours vs Percentage')  
 plt.xlabel('Hours Studied')  
