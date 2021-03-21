@@ -11,7 +11,7 @@ data = pd.read_csv('data/studentscore.csv')
 print(data.head(10))
 
 # Plotting the data
-data.plot(x='Hours', y='Scores', style='o')  
+plt.scatter(data.Hours, data.Scores)
 plt.title('Hours vs Percentage')  
 plt.xlabel('Hours Studied')  
 plt.ylabel('Percentage Score')  
@@ -20,7 +20,7 @@ plt.show()
 # Preparing data
 x = data.iloc[:, :-1].values  
 y = data.iloc[:, 1].values  
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0) 
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0) 
 
 # Training the model
 regressor = LinearRegression()  
@@ -29,7 +29,7 @@ regressor.fit(x_train, y_train)
 # Plotting regression line for test data
 line = regressor.coef_*x + regressor.intercept_
 plt.scatter(x, y)
-plt.plot(x, line);
+plt.plot(x, line, color = 'black')
 plt.title('Regression Curve')
 plt.xlabel('Hours Studied')  
 plt.ylabel('Percentage Score') 
